@@ -1,0 +1,48 @@
+.workingsContainer {
+  display: grid;
+  /* autofill공부 
+  - auto-fill과 auto-fit은 
+  column의 개수를 미리 정하지 않고 설정된 너비가 허용하는 한 최대한 셀을 채웁니다.
+  - 
+  */
+  grid-template-columns: repeat(auto-fill, min(240px));
+  gap: 20px;
+}
+
+.container {
+  width: 200px;
+  background-color: #ededed;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.title {
+  margin: 0;
+  color: #7853f6;
+}
+
+.line {
+  background: #7853f6;
+  border: none;
+  height: 1px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  background-color: #7853f6;
+  color: whitesmoke;
+  width: 100px;
+  margin-top: 10px;
+  padding: 7px;
+  border-radius: 5px;
+  border: none;
+  font-size: 12px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}

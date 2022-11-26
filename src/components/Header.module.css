@@ -1,0 +1,11 @@
+.HeaderContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 20px;
+}
