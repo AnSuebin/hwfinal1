@@ -14,6 +14,7 @@ const Main = () => {
   const addWorksHandler = () => {
     const newWork = {
       // id 값 중복을 피하기 위해 uuid 사용
+      // state로 아이디 값 받아와도 괜찮음
       id: uuid(),
       title: title,
       context: context,
@@ -35,44 +36,53 @@ const Main = () => {
 
   // Working 리스트에서 Done 리스트로 넘기는 함수
   const OnClickToDone = (doneid) => {
-    const filtering = working.filter((work) => {
-      return work.id !== doneid;
-    });
-    const fix = working
-      .filter((work) => {
-        return work.id === doneid;
-      })
-      .map((work) => {
-        return {
-          id: work.id,
-          title: work.title,
-          context: work.context,
-          done: true,
-        };
-      });
+    //findIndex에서 찾은 후, 다시 넣어주기
+    const index = working.findIndex((todo) => todo.id === doneid);
+    working[index].done = true;
+    setWorking([...working]);
+    // const filtering = working.filter((work) => {
+    //   return work.id !== doneid;
+    // });
+    // const fix = working
+    //   .filter((work) => {
+    //     return work.id === doneid;
+    //   })
+    //   .map((work) => {
+    //     return {
+    //       id: work.id,
+    //       title: work.title,
+    //       context: work.context,
+    //       done: true,
+    //     };
+    //   });
 
-    setWorking([...filtering, ...fix]);
+    // setWorking([...filtering, ...fix]);
   };
 
   // Done 리스트에서 Working 리스트로 넘기는 함수
   const OnClickToNotDone = (doneid) => {
-    const filtering = working.filter((work) => {
-      return work.id !== doneid;
-    });
-    const fix = working
-      .filter((work) => {
-        return work.id === doneid;
-      })
-      .map((work) => {
-        return {
-          id: work.id,
-          title: work.title,
-          context: work.context,
-          done: false,
-        };
-      });
+    //findIndex에서 찾은 후, 다시 넣어주기
+    const index = working.findIndex((todo) => todo.id === doneid);
+    working[index].done = false;
+    setWorking([...working]);
 
-    setWorking([...filtering, ...fix]);
+    // const filtering = working.filter((work) => {
+    //   return work.id !== doneid;
+    // });
+    // const fix = working
+    //   .filter((work) => {
+    //     return work.id === doneid;
+    //   })
+    //   .map((work) => {
+    //     return {
+    //       id: work.id,
+    //       title: work.title,
+    //       context: work.context,
+    //       done: false,
+    //     };
+    //   });
+
+    // setWorking([...filtering, ...fix]);
   };
 
   return (
